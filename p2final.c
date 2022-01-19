@@ -14,17 +14,17 @@ return sum;
 }
 void output(int a, int b, int c)
 {
-  int d;
+ 
 printf("The sum of %d and %d is %d\n",a,b,c);
 
 }
 int main()
 {
-  int num1,num2,x,y,z;
+  int num1,num2;
   int sum,d;
   num1 = input();
   num2 = input();
    sum=add(num1,num2);
- d = output(x,y,z);
+output(num1,num2,sum);
   return 0;
 }
