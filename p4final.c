@@ -2,7 +2,7 @@
 int input()
 {
   int a;
-  printf("Enter any 3 numbers to be compared\n");
+  printf("Enter any number to be compared\n");
   scanf("%d",&a);
   return a;
 }
@@ -10,15 +10,15 @@ int cmp(int a,int b,int c)
 {
   if(a>b && a>c)
   {
-    printf("%d is greater",a);
+    printf("%d is greater\n",a);
   }
   else if(a<b && b>c)
   {
-    printf("%d is greater",b);
+    printf("%d is greater\n",b);
   }
   else
   {
-    printf("%d is greater",c);
+    printf("%d is greater\n",c);
   }
 }
 void main()
