@@ -1,12 +1,80 @@
- gcc -g p4final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x823: file p5final.c, line 34.
+(gdb) r
+Starting program: /home/runner/pps-test1-NISHANTHR4/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5final.c:34
+34  {
+(gdb) n
+37    input(&a);
+(gdb) n
+Enter any number to compare
+99
+38    input(&b);
+(gdb) s
+input (a=0x7ffd8d6169bc) at p5final.c:4
+4     printf("Enter any number to compare\n");
+(gdb) n
+Enter any number to compare
+5     scanf("%d",a);
+(gdb) n
+66
+6   }
+(gdb) n
+main () at p5final.c:39
+39    input(&c);
+(gdb) s
+input (a=0x7ffd8d6169c0) at p5final.c:4
+4     printf("Enter any number to compare\n");
+(gdb) n
+Enter any number to compare
+5     scanf("%d",a);
+(gdb) n
+54
+6   }
+(gdb) n
+main () at p5final.c:40
+40    cmp(a,b,c,large);
+(gdb) s
+cmp (a=99, b=66, c=54, large=32765) at p5final.c:10
+10    if(a>=b && a>=c)
+(gdb) n
+13   large = a;
+(gdb) n
+15     if(b>=c && b>=a)
+(gdb) n
+20    if(a<=c && c>=b)
+(gdb) n
+24    num = large;
+(gdb) n
+25    return num;
+ 
+ gcc -g p4original.c
  ./a.out
 Enter any number to be compared
-15
+56
 Enter any number to be compared
-62
+32
 Enter any number to be compared
-84
-84 is greater
+45
+The largest number is 56
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -24,15 +92,15 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x840: file p4final.c, line 27.
+Breakpoint 1 at 0x833: file p4original.c, line 35.
 (gdb) r
 Starting program: /home/runner/pps-test1-NISHANTHR4/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p4final.c:27
-27    num1=input();
+Breakpoint 1, main () at p4original.c:35
+35    num1=input();
 (gdb) s
-input () at p4final.c:3
+input () at p4original.c:3
 3   {
 (gdb) n
 5     printf("Enter any number to be compared\n");
@@ -40,15 +108,15 @@ input () at p4final.c:3
 Enter any number to be compared
 6     scanf("%d",&a);
 (gdb) n
-45
+54
 7     return a;
 (gdb) n
 8   }
 (gdb) n
-main () at p4final.c:28
-28    num2=input();
+main () at p4original.c:36
+36    num2=input();
 (gdb) s
-input () at p4final.c:3
+input () at p4original.c:3
 3   {
 (gdb) n
 5     printf("Enter any number to be compared\n");
@@ -61,43 +129,10 @@ Enter any number to be compared
 (gdb) n
 8   }
 (gdb) n
-main () at p4final.c:29
- 
- gcc -g p4final.c
- ./a.out
-Enter any number to be compared
-54
-Enter any number to be compared
-62
-Enter any number to be compared
-58
-62 is greater
- gdb a.out
-GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
-Copyright (C) 2018 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
-and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<http://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-<http://www.gnu.org/software/gdb/documentation/>.
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from a.out...done.
-(gdb) b main
-Breakpoint 1 at 0x840: file p4final.c, line 27.
-(gdb) r
-Starting program: /home/runner/pps-test1-NISHANTHR4/a.out 
-warning: Error disabling address space randomization: Operation not permitted
-
-Breakpoint 1, main () at p4final.c:27
-27    num1=input();
+main () at p4original.c:37
+37    num3=input();
 (gdb) s
-input () at p4final.c:3
+input () at p4original.c:3
 3   {
 (gdb) n
 5     printf("Enter any number to be compared\n");
@@ -105,68 +140,46 @@ input () at p4final.c:3
 Enter any number to be compared
 6     scanf("%d",&a);
 (gdb) n
-55
+32
 7     return a;
 (gdb) n
 8   }
 (gdb) n
-main () at p4final.c:28
-28    num2=input();
+main () at p4original.c:38
+38    cmpr=cmp(num1,num2,num3);
 (gdb) s
-input () at p4final.c:3
-3   {
+cmp (a=54, b=65, c=32) at p4original.c:12
+12    if(a>b && a>c)
 (gdb) n
-5     printf("Enter any number to be compared\n");
+16    else if(a<b && b>c)
 (gdb) n
-Enter any number to be compared
-6     scanf("%d",&a);
+18      large = b;
 (gdb) n
-69 
-7     return a;
+25    num = large;
 (gdb) n
-8   }
+26  }
 (gdb) n
-main () at p4final.c:29
-29    num3=input();
+main () at p4original.c:39
+39    output();
 (gdb) s
-input () at p4final.c:3
-3   {
+output () at p4original.c:30
+30    printf("The largest number is %d\n",num);
 (gdb) n
-5     printf("Enter any number to be compared\n");
-(gdb) n
-Enter any number to be compared
-6     scanf("%d",&a);
-(gdb) n
-92
-7     return a;
-(gdb) n
-8   }
-(gdb) n
-main () at p4final.c:30
-30    cmpr=cmp(num1,num2,num3);
-(gdb) s
-cmp (a=55, b=69, c=92) at p4final.c:11
-11    if(a>b && a>c)
-(gdb) n
-15    else if(a<b && b>c)
-(gdb) n
-21      printf("%d is greater\n",c);
-(gdb) n
-92 is greater
-23  }
-(gdb) n
-main () at p4final.c:31
+The largest number is 65
 31  }
 (gdb) n
-__libc_start_main (main=0x55eb09800838 <main>, argc=1, 
-    argv=0x7ffdb007b6d8, init=<optimized out>, fini=<optimized out>, 
-    rtld_fini=<optimized out>, stack_end=0x7ffdb007b6c8)
-    at ../csu/libc-start.c:344
+main () at p4original.c:40
+40  }
+(gdb) n
+__libc_start_main (main=0x5631f620082b <main>, argc=1, 
+    argv=0x7fff6a203488, init=<optimized out>, 
+    fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fff6a203478) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 877] will be killed.
+    Inferior 1 [process 638] will be killed.
 
 Quit anyway? (y or n) y
  

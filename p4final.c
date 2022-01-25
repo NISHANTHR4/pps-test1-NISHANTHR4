@@ -8,18 +8,26 @@ int input()
 }
 int cmp(int a,int b,int c)
 {
+  int large;
   if(a>b && a>c)
   {
-    printf("%d is greater\n",a);
+   large = a;
   }
   else if(a<b && b>c)
   {
-    printf("%d is greater\n",b);
+    large = b;
   }
   else
   {
-    printf("%d is greater\n",c);
+    large = c;
   }
+  int num;
+  num = large;
+}
+void output()
+{
+  int num;
+  printf("The largest number is %d\n",num);
 }
 void main()
 {
@@ -28,4 +36,5 @@ void main()
   num2=input();
   num3=input();
   cmpr=cmp(num1,num2,num3);
+  output();
 }
