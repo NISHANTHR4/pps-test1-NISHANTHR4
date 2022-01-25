@@ -25,6 +25,7 @@ int cmp(int a,int b,int c)
   int num;
   num = large;
   return num;
+  
 }
 void output()
 {
