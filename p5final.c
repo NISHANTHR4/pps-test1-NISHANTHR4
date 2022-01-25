@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 void input(int *a)
 {
   printf("Enter any number to compare\n");
