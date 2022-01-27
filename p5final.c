@@ -1,45 +1,32 @@
 #include<stdio.h>
 
-void input(int *a)
+void input(int *a,int *b,int *c)
 {
-  printf("Enter any number to compare\n");
-  scanf("%d",a);
+  printf("Enter any three numbers to compare\n");
+  scanf("%d%d%d",a,b,c);
 }
-int cmp(int a,int b,int c,int large)
+int cmp(int a,int b,int c,int *large)
 {
-  int num;
+  
   if(a>=b && a>=c)
-  {
+    *large = a;
+  if(b>=c )
+     *large= b;
+  else
+    *large= c;
   
- large = a;
-  }
-   if(b>=c && b>=a)
-  {
-  
- large= b;
-  }
-  if(a<=c && c>=b)
-  {
-  large= c;
-  }
-  num = large;
-  return num;
+  return *large;
 }
-void output()
+void output(int num)
 {
-  int num;
   printf("The largest number is %d\n",num);
   
 }
 void main()
 {
-  int num,num1,num2,num3;
+  int cmpr;
   int  large,a,b,c;
-  input(&a);
-  input(&b);
-  input(&c);
-  cmp(a,b,c,large);
-
-  
-  output();
+  input(&a,&b,&c);
+  cmpr=cmp(a,b,c,&large);
+   output(cmpr);
 }

@@ -22,13 +22,12 @@ int cmp(int a,int b,int c)
   {
     large = c;
   }
-  int num;
-  num = large;
-  return num;
+  
+  return large;
 }
-void output()
+void output(int num)
 {
-  int num;
+  
   printf("The largest number is %d\n",num);
 }
 void main()
@@ -38,5 +37,5 @@ void main()
   num2=input();
   num3=input();
   cmpr=cmp(num1,num2,num3);
-  output();
+  output(cmpr);
 }

@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>//error
 
 int input()
 {
@@ -9,12 +9,12 @@ int input()
 }
 int cmp(int a,int b,int c)
 {
-  int large;
-  if(a>b && a>c)
+  int large,num; 
+  if(a>=b && a>=c)
   {
    large = a;
   }
-  else if(a<b && b>c)
+  else if(a<=b && b>=c)
   {
     large = b;
   }
@@ -22,22 +22,22 @@ int cmp(int a,int b,int c)
   {
     large = c;
   }
-  int num;
-  num = large;
-  return num;
+ 
+  return large;
   
 }
-void output()
+int output(int num)
 {
-  int num;
   printf("The largest number is %d\n",num);
 }
-void main()
+int main()
 {
-  int num1,num2,num3,cmpr;
+  int num,num1,num2,num3,cmpr;
   num1=input();
   num2=input();
   num3=input();
   cmpr=cmp(num1,num2,num3);
-  output();
+  
+   output(cmpr);
+   return 0;
 }
