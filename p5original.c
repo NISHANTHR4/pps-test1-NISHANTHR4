@@ -21,24 +21,22 @@ int cmp(int a,int b,int c,int large)
   {
   large= c;
   }
-  num = large;
-  return num;
+  
+  return large;
 }
-void output()
+void output(int num)
 {
-  int num;
+  
   printf("The largest number is %d",num);
   
 }
 void main()
 {
   int num,num1,num2,num3;
-  int  large,a,b,c;
+  int  large,a,b,c,cmpr;
   input(&a);
   input(&b);
   input(&c);
-  cmp(a,b,c,large);
-
-  
-  output();
+  cmpr = cmp(a,b,c,large);
+  output(cmpr);
 }
